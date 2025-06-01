@@ -14,8 +14,9 @@ Please do not share this repo on X, YouTube, etc. This repo is intended for Disc
 - 🛡️ **Passwordless Sudo**: Full administrative privileges
 - 🌐 **Ngrok Integration**: SSH and Ollama tunnels via ngrok
 - 🤖 **Ollama Integration**: Pre-configured Ollama server with model pulling
+- 🔧 **Gollama Tool**: Golang-based Ollama management utility
 - 💾 **Persistent Storage**: Automatic backup and restore of your development environment
-- 🔄 **Auto-Backup**: Background rsync daemon with smart exclusions
+- 🔄 **Auto-Backup**: Background rsync daemon with extensive smart exclusions
 
 ## Quick Start
 
@@ -28,9 +29,15 @@ Please do not share this repo on X, YouTube, etc. This repo is intended for Disc
 3. **Configure Settings** (Optional): Edit configuration variables in the first cell:
    - `BACKUP_KAGGLEBOX`: Enable/disable automatic backup (default: True)
    - `RESTORE_KAGGLEBOX`: Restore from previous backup (default: False)  
-   - `OLLAMA_MODEL`: Ollama model to pull and use (default: "devstral")
+   - `DEBUG`: Enable debug output (default: False)
+   - `OLLAMA`: Install and run Ollama server (default: True)
+   - `OLLAMA_MODEL`: Ollama model to pull and use (default: "deepseek-r1:8b")
+   - `CONNECT_NGROK`: Enable ngrok tunneling (default: True)
 
 4. **Run All Cells**: Execute the notebook to set up SSH access, Ollama, and backups
+   - The notebook automatically cleans up any existing ngrok processes
+   - Installs dependencies including Golang and Gollama
+   - Sets up comprehensive backup exclusions
 
 5. **Connect**: Copy and paste the generated SSH command into your local terminal
 
@@ -39,17 +46,22 @@ Please do not share this repo on X, YouTube, etc. This repo is intended for Disc
 - Creates a `kagglebox` user with passwordless sudo access
 - Generates SSH keys and configures secure authentication
 - Installs and starts OpenSSH server
+- Installs Golang and Gollama (Ollama management tool)
 - Sets up Ollama server with specified model
 - Creates ngrok tunnels for SSH and Ollama access
-- Runs background backup daemon with smart exclusions for common cache/temp directories
+- Runs background backup daemon with extensive smart exclusions for cache/temp directories
 - Provides ready-to-use connection commands
 
 ## Configuration
 
 ```python
 BACKUP_KAGGLEBOX = True   # Enable automatic backup every minute
-RESTORE_KAGGLEBOX = False # Restore from previous backup on startup  
-OLLAMA_MODEL = "devstral" # Ollama model to pull and use
+RESTORE_KAGGLEBOX = False # Restore from previous backup on startup
+DEBUG = False             # Enable debug output
+OLLAMA = True             # Install and run Ollama server
+OLLAMA_MODEL = "deepseek-r1:8b" # Ollama model to pull and use
+CONNECT_NGROK = True      # Enable ngrok tunneling
+#CODE_SERVER = False      # Install web-based VSCode (planned feature)
 ```
 
 ## Example Output
@@ -81,15 +93,21 @@ Ollama URL: https://abc123.ngrok.io
 - **Connection issues**: Verify ngrok token is correct and tunnel is active
 - **Permission denied**: Check SSH key was created with proper permissions (600)
 - **Backup issues**: Check `/kaggle/working/kagglebox-rsync.log` for errors
+- **Ollama issues**: Check if model is properly downloaded and Ollama service is running
 - **Clean restart**: Set `BACKUP_KAGGLEBOX = False` to disable backups if needed
+- **Debug mode**: Set `DEBUG = True` to see detailed output during setup
 
 ## Use Cases
 
 - **Remote Development**: Use VS Code, IntelliJ, etc. with Kaggle's powerful hardware
-- **Persistent Environment**: Your setup persists across notebook sessions
-- **AI Development**: Use Ollama for local LLM development and testing  
+- **Persistent Environment**: Your setup persists across notebook sessions with comprehensive backup
+- **AI Development**: Use Ollama for local LLM development and testing with Gollama management
 - **Package Installation**: Install software with sudo access
 - **Long-term Projects**: Work on projects spanning multiple sessions
+
+## Backup System
+
+The automatic backup system uses rsync with extensive exclusions to avoid backing up temporary and cache files.
 
 ## TODO
 
