@@ -2,7 +2,7 @@
 
 A Jupyter notebook that creates secure SSH access to Kaggle notebook environments via ngrok tunneling. Connect to your Kaggle notebooks from your local terminal with full sudo privileges.
 
-Kaggle provides (for free) a generous VM server of 4 CPU cores, 32GB RAM, and the ability to attach 2x T4 GPUs, a P100, or a TPU. This notebook allows you to use that VM as a dev server via SSH.
+Kaggle provides (for free) a generous VM server of 4 CPU cores, 32GB RAM, and the ability to attach 2x T4 GPUs, a P100, or a TPU. This notebook allows you to use that VM as a GPU dev server via SSH. Ollama is included.
 
 ## Content Creators / Sharing Notice
 
