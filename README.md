@@ -31,7 +31,7 @@ Please do not share this repo on X, YouTube, etc. This repo is intended for Disc
    - `RESTORE_KAGGLEBOX`: Restore from previous backup (default: False)  
    - `DEBUG`: Enable debug output (default: False)
    - `OLLAMA`: Install and run Ollama server (default: True)
-   - `OLLAMA_MODEL`: Ollama model to pull and use (default: "deepseek-r1:8b")
+   - `OLLAMA_MODEL`: Ollama model to pull and use (default: "deepseek-r1:8b"). See: [https://ollama.com/library](https://ollama.com/library)
    - `CONNECT_NGROK`: Enable ngrok tunneling (default: True)
 
 4. **Run All Cells**: Execute the notebook to set up SSH access, Ollama, and backups
@@ -51,18 +51,6 @@ Please do not share this repo on X, YouTube, etc. This repo is intended for Disc
 - Creates ngrok tunnels for SSH and Ollama access
 - Runs background backup daemon with extensive smart exclusions for cache/temp directories
 - Provides ready-to-use connection commands
-
-## Configuration
-
-```python
-BACKUP_KAGGLEBOX = True   # Enable automatic backup every minute
-RESTORE_KAGGLEBOX = False # Restore from previous backup on startup
-DEBUG = False             # Enable debug output
-OLLAMA = True             # Install and run Ollama server
-OLLAMA_MODEL = "deepseek-r1:8b" # Ollama model to pull and use
-CONNECT_NGROK = True      # Enable ngrok tunneling
-#CODE_SERVER = False      # Install web-based VSCode (planned feature)
-```
 
 ## Example Output
 
