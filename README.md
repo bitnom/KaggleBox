@@ -91,6 +91,14 @@ Ollama URL: https://abc123.ngrok.io
 - **Package Installation**: Install software with sudo access
 - **Long-term Projects**: Work on projects spanning multiple sessions
 
+## TODO
+
+- **Cache Ollama models to backup/working mount**: Store downloaded models in persistent storage to avoid re-downloading across sessions
+- **Fully flesh out backup & restore**: Enhance backup system with incremental backups, compression, and selective restore options
+- **Integrate code-server/web-based VSCode**: Add web-based VS Code interface accessible through ngrok tunnel
+- **Implement Kaggle official models feature**: Integrate access to Kaggle's official pre-trained models
+- **Implement Kaggle official datasets feature**: Add functionality to easily access and mount Kaggle datasets
+
 ## License
 
 Apache License 2.0 - feel free to modify and distribute.
